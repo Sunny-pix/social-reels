@@ -1,0 +1,248 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================
+   REEL VIEWPORT
+========================= */
+
+.reels-container {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100dvh;
+
+    overflow: hidden;
+
+    background: #000;
+
+    touch-action: none;
+}
+
+
+/* =========================
+   REEL TRACK
+========================= */
+
+.reels-track {
+    width: 100%;
+
+    height: 100%;
+
+    transform: translate3d(0, 0, 0);
+
+    transition: transform 0.35s ease;
+
+    will-change: transform;
+}
+
+
+/* =========================
+   REEL
+========================= */
+
+.reel {
+    position: relative;
+
+    width: 100%;
+    height: 100dvh;
+
+    overflow: hidden;
+
+    background: #000;
+}
+
+
+/* =========================
+   VIDEO
+========================= */
+
+.reel video {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    background: #000;
+}
+
+
+/* =========================
+   BOTTOM GRADIENT
+========================= */
+
+.reel::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 40%;
+
+    background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 0.85)
+    );
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   INFORMATION
+========================= */
+
+.reel-info {
+    position: absolute;
+
+    left: 20px;
+    right: 20px;
+    bottom: 30px;
+
+    z-index: 2;
+
+    color: white;
+}
+
+.reel-title {
+    font-size: 22px;
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+.reel-description {
+    font-size: 15px;
+    line-height: 1.4;
+
+    opacity: 0.9;
+
+    max-width: 600px;
+}
+
+
+/* =========================
+   PLAY INDICATOR
+========================= */
+
+.play-indicator {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    font-size: 28px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity 0.2s ease;
+
+    z-index: 3;
+}
+
+.play-indicator.show {
+    opacity: 1;
+}
+
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 768px) {
+
+    .reel {
+        width: min(100%, 500px);
+
+        margin: 0 auto;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 767px) {
+
+    .reel-info {
+        left: 16px;
+        right: 16px;
+        bottom: 24px;
+    }
+
+    .reel-title {
+        font-size: 20px;
+    }
+
+    .reel-description {
+        font-size: 14px;
+    }
+
+}
+.video-error {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    color: white;
+
+    font-size: 16px;
+
+    background: rgba(0, 0, 0, 0.6);
+
+    padding: 12px 18px;
+
+    border-radius: 8px;
+
+    z-index: 5;
+}
